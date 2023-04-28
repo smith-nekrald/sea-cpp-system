@@ -1,0 +1,17 @@
+CC = g++
+CFLAGS = -c -O2 -Wall -std=c++1y -DPROFILE_ON -DHAVE_CSTDDEF  
+LDFLAGS = -Wl,--no-as-needed -lprofiler -Wl,--as-needed 
+POSTLIBS = -lgflags -lipopt -pthread -lunwind  -lwsmp64 -luuid -llog4cpp -ljsoncpp -lstdc++fs
+COINLIBS =  -L ./Cbc/lib -Wl,-rpath=./Cbc/lib -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl
+COININC = -I ./Cbc/include/coin -I ./Cbc/Cbc/examples -I ./cereal/include
+SOURCES = $(shell find ./src -name '*.cpp')
+OBJECTS = $(SOURCES:.cpp=.o)
+EXECUTABLE = main
+
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE) : $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@ $(COININC)  $(POSTLIBS)  $(COINLIBS)
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@ $(COININC)  $(POSTLIBS) $(COINLIBS)

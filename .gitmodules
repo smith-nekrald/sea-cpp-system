@@ -1,6 +1,6 @@
 [submodule "lib/Sources-HSL"]
 	path = lib/Sources-HSL
-	url = https://smith-nekrald@bitbucket.org/smith-projects/sea-cpp-hsl.git
+	url = https://bitbucket.org/smith-projects/sea-cpp-hsl.git
 [submodule "lib/ThirdParty-HSL"]
 	path = lib/ThirdParty-HSL
 	url = https://github.com/coin-or-tools/ThirdParty-HSL.git
@@ -42,4 +42,4 @@
 	url = https://github.com/coin-or-tools/Data-Netlib.git
 [submodule "src"]
 	path = src
-	url = https://smith-nekrald@bitbucket.org/smith-projects/sea-cpp-src.git
+	url = https://bitbucket.org/smith-projects/sea-cpp-src.git
