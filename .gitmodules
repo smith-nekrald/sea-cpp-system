@@ -1,0 +1,45 @@
+[submodule "lib/Sources-HSL"]
+	path = lib/Sources-HSL
+	url = https://smith-nekrald@bitbucket.org/smith-projects/sea-cpp-hsl.git
+[submodule "lib/ThirdParty-HSL"]
+	path = lib/ThirdParty-HSL
+	url = https://github.com/coin-or-tools/ThirdParty-HSL.git
+[submodule "lib/Ipopt"]
+	path = lib/Ipopt
+	url = https://github.com/coin-or/Ipopt.git
+[submodule "lib/CppAD"]
+	path = lib/CppAD
+	url = https://github.com/coin-or/CppAD.git
+[submodule "lib/ThirdParty-Mumps"]
+	path = lib/ThirdParty-Mumps
+	url = https://github.com/coin-or-tools/ThirdParty-Mumps.git
+[submodule "lib/ThirdParty-ASL"]
+	path = lib/ThirdParty-ASL
+	url = https://github.com/coin-or-tools/ThirdParty-ASL.git
+[submodule "lib/Cbc"]
+	path = lib/Cbc
+	url = https://github.com/coin-or/Cbc.git
+[submodule "lib/Clp"]
+	path = lib/Clp
+	url = https://github.com/coin-or/Clp.git
+[submodule "lib/Cgl"]
+	path = lib/Cgl
+	url = https://github.com/coin-or/Cgl.git
+[submodule "lib/Data-Sample"]
+	path = lib/Data-Sample
+	url = https://github.com/coin-or-tools/Data-Sample.git
+[submodule "lib/Data-miplib3"]
+	path = lib/Data-miplib3
+	url = https://github.com/coin-or-tools/Data-miplib3.git
+[submodule "lib/CoinUtils"]
+	path = lib/CoinUtils
+	url = https://github.com/coin-or/CoinUtils.git
+[submodule "lib/Osi"]
+	path = lib/Osi
+	url = https://github.com/coin-or/Osi.git
+[submodule "lib/Data-Netlib"]
+	path = lib/Data-Netlib
+	url = https://github.com/coin-or-tools/Data-Netlib.git
+[submodule "src"]
+	path = src
+	url = https://smith-nekrald@bitbucket.org/smith-projects/sea-cpp-src.git
