@@ -1,9 +1,10 @@
 CC = g++
-CFLAGS = -c -Wall -ggdb -std=c++1y -pedantic -Wextra -Wformat=2 -Wlogical-op -Wcast-qual -Wcast-align -fstack-protector -lmcheck -D_FORTIFY_SOURCE=2  -pthread -ftrapv -DHAVE_CSTDDEF -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -fstack-protector -fsanitize=undefined -fno-sanitize-recover -fsanitize=address
+CFLAGS = -c -Wall -ggdb -std=c++20 -pedantic -Wextra -Wformat=2 -Wlogical-op -Wcast-qual -Wcast-align -fstack-protector -lmcheck -D_FORTIFY_SOURCE=2  -pthread -ftrapv -DHAVE_CSTDDEF -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -fstack-protector -fsanitize=undefined -fno-sanitize-recover -fsanitize=address
 LDFLAGS = 
 POSTLIBS = -lgflags -lipopt -pthread -lunwind -lwsmp64 -luuid -llog4cpp -ljsoncpp -lstdc++fs -lasan -fsanitize=address -fsanitize=undefined -fno-sanitize-recover
-COINLIBS =  -L ./Cbc/lib -Wl,-rpath=./Cbc/lib -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl
-COININC = -I ./Cbc/include/coin -I ./Cbc/Cbc/examples
+
+COINLIBS = -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl
+COININC =  -I /usr/local/include/coin-or -I /usr/include/coin  
 SOURCES = $(shell find ./src -name '*.cpp')
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = debug

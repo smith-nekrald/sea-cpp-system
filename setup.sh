@@ -72,8 +72,9 @@ cd "${script_directory}"
 
 # Installing IPOPT
 mkdir -p lib/Ipopt/build
-cd lib/ThirdParty-ASL/build
-../configure
+cd lib/Ipopt/build
+export ADD_CXXFLAGS="-std=c++17"
+../configure 
 make -j $njobs
 make test -j $njobs
 sudo make install
@@ -83,7 +84,7 @@ cd "${script_directory}"
 # Installing CPPAD
 mkdir -p lib/CppAD/build
 cd lib/CppAD/build
-cmake -D include_ipopt=true -D cppad_cxx_flags="-std=c++20 -D_GLIBCXX_USE_CXX11_ABI=1 " ..
+cmake -D include_ipopt=true -D cppad_cxx_flags="-std=c++17" -D CMAKE_VERBOSE_MAKEFILE=YES ..
 make check -j $njobs
 sudo make install
 cd "${script_directory}"
