@@ -7,7 +7,7 @@ COINLIBS = -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -
 COININC =  -I /usr/local/include/coin-or -I /usr/include/coin  
 SOURCES = $(shell find ./src -name '*.cpp')
 OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE = main
+EXECUTABLE = prof
 
 all: $(SOURCES) $(EXECUTABLE)
 
