@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+njobs=12
+
 set -uexo pipefail
 
 # Installing Compilation Packages.
@@ -30,7 +32,7 @@ tar xf "${coinhsl_filename}.tar"
 ln -sf "${coinhsl_filename}" coinhsl
 cd build
 ../configure
-make
+make -j $njobs
 sudo make install
 cd "$script_directory"
 
@@ -41,7 +43,18 @@ cd lib/ThirdParty-Mumps
 ./get.Mumps
 cd build
 ../configure 
-make
+make -j $njobs
+sudo make install
+cd "${script_directory}"
+
+
+# Installing Metis
+mkdir -p lib/ThirdParty-Metis/build
+cd lib/ThirdParty-Metis
+./get.Metis
+cd build
+../configure 
+make -j $njobs
 sudo make install
 cd "${script_directory}"
 
@@ -52,7 +65,7 @@ cd lib/ThirdParty-ASL
 ./get.ASL
 cd build
 ../configure
-make
+make -j $njobs
 sudo make install
 cd "${script_directory}"
 
@@ -61,8 +74,8 @@ cd "${script_directory}"
 mkdir -p lib/Ipopt/build
 cd lib/ThirdParty-ASL/build
 ../configure
-make
-make test
+make -j $njobs
+make test -j $njobs
 sudo make install
 cd "${script_directory}"
 
@@ -70,8 +83,8 @@ cd "${script_directory}"
 # Installing CPPAD
 mkdir -p lib/CppAD/build
 cd lib/CppAD/build
-cmake -D include_ipopt=true ..
-make check
+cmake -D include_ipopt=true -D cppad_cxx_flags="-std=c++20 -D_GLIBCXX_USE_CXX11_ABI=1 " ..
+make check -j $njobs
 sudo make install
 cd "${script_directory}"
 
@@ -80,7 +93,7 @@ cd "${script_directory}"
 mkdir -p lib/Data-Sample/build
 cd lib/Data-Sample/build
 ../configure -C
-make
+make -j $njobs
 sudo make install
 cd "$script_directory"
 
@@ -89,7 +102,7 @@ cd "$script_directory"
 mkdir -p lib/Data-miplib3/build
 cd lib/Data-miplib3/build
 ../configure -C
-make
+make -j $njobs
 sudo make install
 cd "$script_directory"
 
@@ -98,7 +111,7 @@ cd "$script_directory"
 mkdir -p lib/Data-Netlib/build
 cd lib/Data-Netlib/build
 ../configure -C
-make
+make -j $njobs
 sudo make install
 cd "$script_directory"
 
@@ -107,8 +120,8 @@ cd "$script_directory"
 mkdir -p lib/CoinUtils/build
 cd lib/CoinUtils/build
 ../configure -C
-make
-make test
+make -j $njobs
+make test -j $njobs
 sudo make install
 cd "${script_directory}"
 
@@ -117,8 +130,8 @@ cd "${script_directory}"
 mkdir -p lib/Osi/build
 cd lib/Osi/build
 ../configure -C
-make
-make test
+make -j $njobs
+make test -j $njobs
 sudo make install 
 cd "${script_directory}"
 
@@ -127,8 +140,8 @@ cd "${script_directory}"
 mkdir -p lib/Clp/build
 cd lib/Clp/build
 ../configure -C
-make
-make test
+make -j $njobs
+make test -j $njobs
 sudo make install
 cd "${script_directory}"
 
@@ -137,8 +150,8 @@ cd "${script_directory}"
 mkdir -p lib/Cgl/build
 cd lib/Cgl/build
 ../configure -C
-make
-make test
+make -j $njobs
+make test -j $njobs
 sudo make install
 cd "${script_directory}"
 
@@ -147,8 +160,8 @@ cd "${script_directory}"
 mkdir -p lib/Cbc/build
 cd lib/Cbc/build
 ../configure -C
-make
-make test
+make -j $njobs
+make test -j $njobs
 sudo make install
 cd "${script_directory}"
 

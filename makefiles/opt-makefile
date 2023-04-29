@@ -1,9 +1,10 @@
 CC = g++
-CFLAGS = -c -O2 -Wall -std=c++17
+CFLAGS = -c -O2 -Wall -std=c++20 -DHAVE_CSTDDEF 
 LDFLAGS = 
 POSTLIBS = -lgflags -lipopt -pthread -lunwind  -lwsmp64 -luuid -llog4cpp -ljsoncpp -lstdc++fs 
-COINLIBS = -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl 
-COININC =  -I /usr/include/coin 
+COINLIBS = -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl
+COININC =  -I /usr/local/include/coin-or -I /usr/include/coin  
+
 SOURCES = $(shell find ./src -name '*.cpp')
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = main
@@ -16,7 +17,7 @@ $(EXECUTABLE) : $(OBJECTS)
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@ $(COININC)  $(POSTLIBS) $(COINLIBS)
 
-#-DHAVE_CSTDDEF 
+#
 #-D_GLIBCXX_USE_CXX11_ABI=0
 #-L /usr/lib/x86_64-linux-gnu
 # -I /usr/include 
