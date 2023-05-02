@@ -4,27 +4,34 @@
 [submodule "lib/ThirdParty-HSL"]
 	path = lib/ThirdParty-HSL
 	url = https://github.com/coin-or-tools/ThirdParty-HSL.git
+        branch = stable/2.2
 [submodule "lib/Ipopt"]
 	path = lib/Ipopt
 	url = https://github.com/coin-or/Ipopt.git
+        branch = stable/3.14
 [submodule "lib/CppAD"]
 	path = lib/CppAD
 	url = https://github.com/coin-or/CppAD.git
+        branch = stable/20230000
 [submodule "lib/ThirdParty-Mumps"]
 	path = lib/ThirdParty-Mumps
 	url = https://github.com/coin-or-tools/ThirdParty-Mumps.git
+        branch = stable/3.0
 [submodule "lib/ThirdParty-ASL"]
 	path = lib/ThirdParty-ASL
 	url = https://github.com/coin-or-tools/ThirdParty-ASL.git
 [submodule "lib/Cbc"]
 	path = lib/Cbc
 	url = https://github.com/coin-or/Cbc.git
+        branch = stable/2.10
 [submodule "lib/Clp"]
 	path = lib/Clp
 	url = https://github.com/coin-or/Clp.git
+        branch = stable/1.17
 [submodule "lib/Cgl"]
 	path = lib/Cgl
 	url = https://github.com/coin-or/Cgl.git
+        branch = stable/0.60
 [submodule "lib/Data-Sample"]
 	path = lib/Data-Sample
 	url = https://github.com/coin-or-tools/Data-Sample.git
@@ -37,6 +44,7 @@
 [submodule "lib/Osi"]
 	path = lib/Osi
 	url = https://github.com/coin-or/Osi.git
+        branch = stable/0.108
 [submodule "lib/Data-Netlib"]
 	path = lib/Data-Netlib
 	url = https://github.com/coin-or-tools/Data-Netlib.git
@@ -46,3 +54,4 @@
 [submodule "lib/ThirdParty-Metis"]
 	path = lib/ThirdParty-Metis
 	url = https://github.com/coin-or-tools/ThirdParty-Metis
+        branch = stable/2.0
