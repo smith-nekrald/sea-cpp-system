@@ -23,15 +23,15 @@
 [submodule "lib/Cbc"]
 	path = lib/Cbc
 	url = https://github.com/coin-or/Cbc.git
-        branch = stable/2.10
+        branch = master
 [submodule "lib/Clp"]
 	path = lib/Clp
 	url = https://github.com/coin-or/Clp.git
-        branch = stable/1.17
+        branch = master
 [submodule "lib/Cgl"]
 	path = lib/Cgl
 	url = https://github.com/coin-or/Cgl.git
-        branch = stable/0.60
+        branch = master
 [submodule "lib/Data-Sample"]
 	path = lib/Data-Sample
 	url = https://github.com/coin-or-tools/Data-Sample.git
@@ -41,11 +41,11 @@
 [submodule "lib/CoinUtils"]
 	path = lib/CoinUtils
 	url = https://github.com/coin-or/CoinUtils.git
-        branch = stable/2.11
+        branch = master
 [submodule "lib/Osi"]
 	path = lib/Osi
 	url = https://github.com/coin-or/Osi.git
-        branch = stable/0.108
+        branch = master
 [submodule "lib/Data-Netlib"]
 	path = lib/Data-Netlib
 	url = https://github.com/coin-or-tools/Data-Netlib.git
