@@ -23,7 +23,7 @@ script_directory=`pwd`
 
 
 # Installing ThirParty-HSL
-coinhsl_filename="coinhsl-archive-2022.12.02"
+coinhsl_filename="coinhsl-2022.11.09"
 mkdir -p lib/ThirdParty-HSL/build
 cp lib/Sources-HSL/"${coinhsl_filename}.tar.gz"  lib/ThirdParty-HSL/"${coinhsl_filename}.tar.gz"
 cd lib/ThirdParty-HSL
