@@ -41,6 +41,7 @@
 [submodule "lib/CoinUtils"]
 	path = lib/CoinUtils
 	url = https://github.com/coin-or/CoinUtils.git
+        branch = stable/2.11
 [submodule "lib/Osi"]
 	path = lib/Osi
 	url = https://github.com/coin-or/Osi.git
