@@ -1,12 +1,12 @@
 CC = g++
-CFLAGS = -c -O0 -Wall -std=c++17 -g -ggdb
+CFLAGS = -c -O3 -Wall -std=c++17 
 LDFLAGS = 
 POSTLIBS = -lgflags -lipopt -pthread -lunwind  -lwsmp64 -luuid -llog4cpp -ljsoncpp -lstdc++fs
 COINLIBS =  -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl
 COININC = -I /usr/local/include/coin-or -I /usr/include/coin
 SOURCES = $(shell find ./code -name '*.cpp' -follow)
 OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE = main
+EXECUTABLE = test 
 
 all: $(SOURCES) $(EXECUTABLE)
 
@@ -19,4 +19,4 @@ $(EXECUTABLE) : $(OBJECTS)
 clean:
 	rm -rf code/*.o
 	rm -rf code/gm_src/*.o
-	rm -rf main
+	rm -rf test
