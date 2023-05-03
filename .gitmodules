@@ -5,50 +5,63 @@
 	path = lib/ThirdParty-HSL
 	url = https://github.com/coin-or-tools/ThirdParty-HSL.git
         branch = stable/2.2
+        ignore = dirty
 [submodule "lib/Ipopt"]
 	path = lib/Ipopt
 	url = https://github.com/coin-or/Ipopt.git
         branch = stable/3.14
+        ignore = dirty
 [submodule "lib/CppAD"]
 	path = lib/CppAD
 	url = https://github.com/coin-or/CppAD.git
         branch = stable/20230000
+        ignore = dirty
 [submodule "lib/ThirdParty-Mumps"]
 	path = lib/ThirdParty-Mumps
 	url = https://github.com/coin-or-tools/ThirdParty-Mumps.git
         branch = stable/3.0
+        ignore = dirty
 [submodule "lib/ThirdParty-ASL"]
 	path = lib/ThirdParty-ASL
 	url = https://github.com/coin-or-tools/ThirdParty-ASL.git
+        ignore = dirty
 [submodule "lib/Cbc"]
 	path = lib/Cbc
 	url = https://github.com/coin-or/Cbc.git
         branch = master
+        ignore = dirty
 [submodule "lib/Clp"]
 	path = lib/Clp
 	url = https://github.com/coin-or/Clp.git
         branch = master
+        ignore = dirty
 [submodule "lib/Cgl"]
 	path = lib/Cgl
 	url = https://github.com/coin-or/Cgl.git
         branch = master
+        ignore = dirty
 [submodule "lib/Data-Sample"]
 	path = lib/Data-Sample
 	url = https://github.com/coin-or-tools/Data-Sample.git
+        ignore = dirty
 [submodule "lib/Data-miplib3"]
 	path = lib/Data-miplib3
 	url = https://github.com/coin-or-tools/Data-miplib3.git
+        ignore = dirty
 [submodule "lib/CoinUtils"]
 	path = lib/CoinUtils
 	url = https://github.com/coin-or/CoinUtils.git
         branch = master
+        ignore = dirty
 [submodule "lib/Osi"]
 	path = lib/Osi
 	url = https://github.com/coin-or/Osi.git
         branch = master
+        ignore = dirty
 [submodule "lib/Data-Netlib"]
 	path = lib/Data-Netlib
 	url = https://github.com/coin-or-tools/Data-Netlib.git
+        ignore = dirty
 [submodule "src"]
 	path = src
 	url = https://bitbucket.org/smith-projects/sea-cpp-src.git
@@ -56,3 +69,4 @@
 	path = lib/ThirdParty-Metis
 	url = https://github.com/coin-or-tools/ThirdParty-Metis
         branch = stable/2.0
+        ignore = dirty
