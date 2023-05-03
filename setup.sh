@@ -18,7 +18,6 @@ sudo apt-get update
 sudo apt-get dist-upgrade -f -y
 sudo apt-get install -f -y ${setup_list[@]}
 
-git submodule update --init --recursive
 script_directory=`pwd`
 
 
