@@ -11,7 +11,7 @@ setup_list=(bison build-essential cmake doxygen flex
     libgoogle-perftools-dev libgraphviz-dev libjsoncpp-dev liblapack-dev 
     liblbfgs-dev liblog4cpp5-dev libmetis-dev libopenblas-dev libpython3-dev 
     make patch pkg-config python3-dev python3-pip python3-setuptools screen 
-    subversion uuid-dev uuid-runtime wget zip zlib1g-dev
+    subversion uuid-dev uuid-runtime wget zip zlib1g-dev libomp-dev
 )
 
 sudo apt-get update 
@@ -25,7 +25,7 @@ script_directory=`pwd`
 if [ ! -d lib/ThirdParty-HSL/build ]; then
     coinhsl_filename="coinhsl-2022.11.09"
     mkdir -p lib/ThirdParty-HSL/build
-    cp lib/Sources-HSL/"${coinhsl_filename}.tar.gz"  lib/ThirdParty-HSL/"${coinhsl_filename}.tar.gz"
+    cp lib/Sources-HSL/"${coinhsl_filename}.tar.gz" lib/ThirdParty-HSL/"${coinhsl_filename}.tar.gz"
     cd lib/ThirdParty-HSL
     gunzip "${coinhsl_filename}.tar.gz"
     tar xf "${coinhsl_filename}.tar"
@@ -81,7 +81,9 @@ fi
 if [ ! -d lib/Ipopt/build ]; then
     mkdir -p lib/Ipopt/build
     cd lib/Ipopt/build
-    export ADD_CXXFLAGS="-std=c++17"
+    export ADD_CXXFLAGS="-std=c++17 -fopenmp"
+    export ADD_FFLAGS="-fopenmp"
+    export ADD_CFLAGS="-fopenmp"
     ../configure 
     make -j $njobs
     make test -j $njobs

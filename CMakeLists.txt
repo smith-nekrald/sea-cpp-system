@@ -30,7 +30,7 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 add_executable(sea ${SOURCES})
 
-target_compile_options(sea PUBLIC -O2 -march=native)
+target_compile_options(sea PUBLIC -O3 -march=native -fopenmp)
 
 target_link_libraries(sea
     ${SEA_LIBRARIES}
