@@ -14,11 +14,18 @@ setup_list=(bison build-essential cmake doxygen flex
     subversion uuid-dev uuid-runtime wget zip zlib1g-dev libomp-dev
 )
 
-sudo apt-get update 
-sudo apt-get dist-upgrade -f -y
-sudo apt-get install -f -y ${setup_list[@]}
+online=${online=1}
 
-script_directory=`pwd`
+if [[ $online -eq 1 ]]; then
+    sudo apt-get update 
+    sudo apt-get dist-upgrade -f -y
+    sudo apt-get install -f -y ${setup_list[@]}
+fi
+
+launch_directory=`pwd`
+script_path=`readlink -f "${BASH_SOURCE[0]}"`
+script_directory=`dirname "$script_path"`
+cd "$script_directory"
 
 
 # Installing ThirParty-HSL
@@ -195,5 +202,6 @@ if [ ! -d lib/Cbc/build ]; then
     cd "${script_directory}"
 fi
 
+cd "$launch_directory"
 set +uexo
 
