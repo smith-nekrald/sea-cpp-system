@@ -6,7 +6,7 @@ set -uexo pipefail
 
 # Installing Compilation Packages.
 setup_list=(bison build-essential cmake doxygen flex 
-    g++ gcc gcc-multilib gfortran git google-perftools 
+    g++ gcc gcc-multilib gfortran git google-perftools sphinx
     graphviz libboost-all-dev libbz2-dev libffi-dev libgflags-dev libgfortran5
     libgoogle-perftools-dev libgraphviz-dev libjsoncpp-dev liblapack-dev 
     liblbfgs-dev liblog4cpp5-dev libmetis-dev libopenblas-dev libpython3-dev 
