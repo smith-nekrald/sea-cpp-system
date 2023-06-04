@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Installation script for the C++ component.
+
+# Author: Aliaksandr Nekrashevich
+# Email: aliaksandr.nekrashevich@queensu.ca
+# (c) Smith School of Business, 2023
+
 njobs=12
 
 set -uexo pipefail
