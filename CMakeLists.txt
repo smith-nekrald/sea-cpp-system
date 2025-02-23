@@ -22,7 +22,7 @@ link_directories(
 
 set(SEA_LIBRARIES
     "-lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz"
-    "-lbz2 -llapack -lblas -ldl -lgflags -lipopt -pthread -lunwind -lwsmp64"
+    "-lbz2 -llapack -lblas -ldl -lgflags -lipopt -pthread -lunwind"
     "-luuid -llog4cpp -ljsoncpp -lstdc++fs"
     )
 

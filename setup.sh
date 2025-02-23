@@ -5,8 +5,9 @@
 # Author: Aliaksandr Nekrashevich
 # Email: aliaksandr.nekrashevich@queensu.ca
 # (c) Smith School of Business, 2023
+# (c) Smith School of Business, 2025
 
-njobs=12
+njobs=6
 
 set -uexo pipefail
 
@@ -17,7 +18,7 @@ setup_list=(bison build-essential cmake doxygen flex
     libgoogle-perftools-dev libgraphviz-dev libjsoncpp-dev liblapack-dev 
     liblbfgs-dev liblog4cpp5-dev libmetis-dev libopenblas-dev libpython3-dev 
     make patch pkg-config python3-dev python3-pip python3-setuptools screen 
-    subversion uuid-dev uuid-runtime wget zip zlib1g-dev libomp-dev
+    subversion uuid-dev uuid-runtime wget zip zlib1g-dev libomp-dev libcereal-dev
 )
 
 online=${online=1}
@@ -28,11 +29,15 @@ if [[ $online -eq 1 ]]; then
     sudo apt-get install -f -y ${setup_list[@]}
 fi
 
+# Installing Python packages
+pip3 install stochastic --user
+
 launch_directory=`pwd`
 script_path=`readlink -f "${BASH_SOURCE[0]}"`
 script_directory=`dirname "$script_path"`
 cd "$script_directory"
-
+mkdir -p lib
+git submodule update --init --recursive
 
 # Installing ThirParty-HSL
 if [ ! -d lib/ThirdParty-HSL/build ]; then
