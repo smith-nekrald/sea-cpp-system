@@ -1,7 +1,7 @@
 CC = c++
 CFLAGS = -c -O3 -std=c++20  -DNDEBUG
 LDFLAGS = 
-POSTLIBS = -lgflags -lipopt -pthread -lunwind  -lwsmp64 -luuid -llog4cpp -ljsoncpp -lstdc++fs 
+POSTLIBS = -lgflags -lipopt -pthread -lunwind  -luuid -llog4cpp -ljsoncpp -lstdc++fs 
 COINLIBS = -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl
 COININC =  -I /usr/local/include/coin-or -I /usr/include/coin  
 

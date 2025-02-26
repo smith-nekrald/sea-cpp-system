@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -c -O2 -Wall -std=c++20 -DPROFILE_ON -DHAVE_CSTDDEF  
 LDFLAGS = -Wl,--no-as-needed -lprofiler -Wl,--as-needed 
-POSTLIBS = -lgflags -lipopt -pthread -lunwind  -lwsmp64 -luuid -llog4cpp -ljsoncpp -lstdc++fs
+POSTLIBS = -lgflags -lipopt -pthread -lunwind  -luuid -llog4cpp -ljsoncpp -lstdc++fs
 
 COINLIBS = -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl
 COININC =  -I /usr/local/include/coin-or -I /usr/include/coin  
