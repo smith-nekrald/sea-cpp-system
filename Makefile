@@ -1,9 +1,9 @@
 opt: 
-	make -j 12 -f makefiles/opt-makefile
+	make -j 8 -f makefiles/opt-makefile
 dbg: 
-	make -j 12 -f makefiles/debug-makefile
+	make -j 8 -f makefiles/debug-makefile
 prof: 
-	make -j 12 -f makefiles/prof-makefile
+	make -j 8 -f makefiles/prof-makefile
 clean:  
 	rm -rf logs
 	rm -rf results

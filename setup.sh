@@ -30,7 +30,10 @@ if [[ $online -eq 1 ]]; then
 fi
 
 # Installing Python packages
-pip3 install stochastic --user
+python_packages=(stochastic pygraphviz)
+for pip_package in ${python_packages[@]}; do
+    pip install $pip_package --user
+done
 
 launch_directory=`pwd`
 script_path=`readlink -f "${BASH_SOURCE[0]}"`
