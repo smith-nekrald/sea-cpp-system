@@ -7,7 +7,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "")
 
 add_compile_options(
     -Wall
-    -std=c++20
+    -std=c++23
     -pthread
     -DHAVE_CSTDDEF
     )

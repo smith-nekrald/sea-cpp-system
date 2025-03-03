@@ -1,5 +1,4 @@
-CC = c++
-CFLAGS = -c -O3 -std=c++20  -DNDEBUG
+CFLAGS = -c -O3 -std=c++23  -DNDEBUG 
 LDFLAGS = 
 POSTLIBS = -lgflags -lipopt -pthread -lunwind  -luuid -llog4cpp -ljsoncpp -lstdc++fs 
 COINLIBS = -lOsiCbc -lCbc -lCgl -lOsiClp -lOsi -lClp -lCoinUtils -lm -lz -lbz2 -llapack -lblas -ldl

@@ -82,15 +82,13 @@ clang_include_line = fill_clang_line(llvm_template, clang_template)
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
-    '-std=c++20',
+    '-std=c++23',
     '-Wall',
     '-Wextra',
     '-Woverflow',
     '-ftrapv',
     '-Werror',
-    '-Wno-long-long',
-    '-Wno-variadic-macros',
-    '-Qunused-arguments',
+    '-Wshadow-all',
     '-fexceptions',
     '-DNDEBUG',
     '-x',

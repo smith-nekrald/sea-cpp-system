@@ -1,5 +1,4 @@
-CC = g++
-CFLAGS = -c -O2 -Wall -std=c++20 -DPROFILE_ON -DHAVE_CSTDDEF  
+CFLAGS = -c -O2 -Wall -std=c++23 -DPROFILE_ON -DHAVE_CSTDDEF  
 LDFLAGS = -Wl,--no-as-needed -lprofiler -Wl,--as-needed 
 POSTLIBS = -lgflags -lipopt -pthread -lunwind  -luuid -llog4cpp -ljsoncpp -lstdc++fs
 

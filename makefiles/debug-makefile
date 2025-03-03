@@ -1,5 +1,4 @@
-CC = g++
-CFLAGS = -c -Wall -ggdb -std=c++20 -pedantic -Wextra -Wformat=2 -Wlogical-op -Wcast-qual -Wcast-align -fstack-protector -lmcheck -D_FORTIFY_SOURCE=2  -pthread -ftrapv -DHAVE_CSTDDEF -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -fstack-protector -fsanitize=undefined -fno-sanitize-recover -fsanitize=address
+CFLAGS = -c -Wall -ggdb -std=c++23 -pedantic -Wextra -Wformat=2 -Wlogical-op -Wcast-qual -Wcast-align -fstack-protector -lmcheck -D_FORTIFY_SOURCE=2  -pthread -ftrapv -DHAVE_CSTDDEF -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -Wshadow -fstack-protector -fsanitize=undefined -fno-sanitize-recover -fsanitize=address
 LDFLAGS = 
 POSTLIBS = -lgflags -lipopt -pthread -lunwind -luuid -llog4cpp -ljsoncpp -lstdc++fs -lasan -fsanitize=address -fsanitize=undefined -fno-sanitize-recover
 
