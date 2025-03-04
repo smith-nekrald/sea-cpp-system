@@ -6,11 +6,23 @@
 # Email: aliaksandr.nekrashevich@queensu.ca
 # (c) Smith School of Business, 2025
 
-export PATH="$PATH":/usr/local/gcc-14.2.0/bin
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":/usr/local/gcc-14.2.0/lib64
-export CMAKE_C_COMPILER="gcc-14.2.0"
-export CMAKE_CXX_COMPILER="g++-14.2.0"
-export C="gcc-14.2.0"
-export CC="g++-14.2.0"
-export CXX="g++-14.2.0"
+export PATH="$PATH":/usr/local/gcc-14.2.0/bin:/usr/lib/llvm-19/bin
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":/usr/local/gcc-14.2.0/lib64:/usr/lib/llvm-19/lib
+
+c_compiler="gcc-14.2.0"
+cxx_compiler="g++-14.2.0"
+
+if ! $c_compiler --version; then
+    c_compiler=gcc
+fi
+
+if ! $cxx_compiler --version; then
+    cxx_compiler=g++
+fi
+
+export CMAKE_C_COMPILER="$c_compiler"
+export CMAKE_CXX_COMPILER="$cxx_compiler"
+export C="$c_compiler"
+export CC="$cxx_compiler"
+export CXX="$cxx_compiler"
 

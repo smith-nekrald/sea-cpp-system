@@ -41,42 +41,13 @@ SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 
 database = None
 
-SEARCH_LIMIT = 41
 
-cpp_include_template = '/usr/include/c++/{}'
-x86_64_include_template = '/usr/include/x86_64-linux-gnu/c++/{}'
-backward_include_template = '/usr/include/c++/{}/backward'
-llvm_template = '/usr/lib/llvm-{}/lib/clang/'
-clang_template = '{}.{}.{}/include'
-
-def fill_line_once(line):
-    response = None
-    for version in range(SEARCH_LIMIT):
-        filled = line.format(version)
-        if os.path.exists(filled):
-            response = filled
-    assert response is not None
-    return response
-
-def fill_clang_line(llvm_template, clang_template):
-    response = None
-    for version in range(SEARCH_LIMIT):
-        llvm_path = llvm_template.format(version)
-        if os.path.exists(llvm_path):
-            major = version
-            for minor in range(SEARCH_LIMIT):
-                for suffix in range(SEARCH_LIMIT):
-                    clang_path = llvm_path + clang_template.format(major, minor, suffix)
-                    if os.path.exists(clang_path):
-                        response = clang_path
-    assert response is not None
-    return response
-
-cpp_include_line = fill_line_once(cpp_include_template)
-x86_64_include_line = fill_line_once(x86_64_include_template)
-backward_include_line = fill_line_once(backward_include_template)
-clang_include_line = fill_clang_line(llvm_template, clang_template)
-
+cpp_include_line = "/usr/local/gcc-14.2.0/include/c++"
+x86_64_include_line = "/usr/local/gcc-14.2.0/include/c++/14.2.0/x86_64-linux-gnu"
+backward_include_line = "/usr/local/gcc-14.2.0/include/c++/14.2.0/backward"
+gcc_include_line = "/usr/local/gcc-14.2.0/include/c++/14.2.0"
+gcc_include_experimental = "/usr/local/gcc-14.2.0/include/c++/14.2.0/experimental"
+clang_include_line = "/usr/lib/llvm-19/lib/clang/19/include"
 
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
@@ -94,29 +65,11 @@ flags = [
     '-x',
     'c++',
     '-isystem',
-    'cpp/absl',
-    '-isystem',
-    'cpp/pybind11',
-    '-isystem',
-    'cpp/whereami',
-    '-isystem',
-    'cpp/BoostParts',
-    '-isystem',
     get_path( 'include' ),
     '-isystem',
-    'cpp/llvm/include',
+    gcc_include_line,
     '-isystem',
-    'cpp/llvm/tools/clang/include',
-    '-I',
-    'cpp/ycm',
-    '-I',
-    'cpp/ycm/ClangCompleter',
-    '-isystem',
-    'cpp/ycm/tests/gmock/googlemock/include',
-    '-isystem',
-    'cpp/ycm/tests/gmock/googletest/include',
-    '-isystem',
-    'cpp/ycm/benchmarks/benchmark/include',
+    gcc_include_experimental,
     '-isystem',
     cpp_include_line,
     '-isystem',
@@ -126,8 +79,6 @@ flags = [
     '-isystem',
     clang_include_line,
      '-isystem',
-    '/usr/include/x86_64-linux-gnu',
-    '-isystem',
     '/usr/include',
     '-isystem',
     '/usr/local/include',
@@ -135,7 +86,6 @@ flags = [
     '/usr/local/include/coin-or',
     '-isystem',
     '/usr/include/coin',
-    '-isystem',
 ]
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
