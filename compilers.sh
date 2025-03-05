@@ -21,8 +21,9 @@ if ! $cxx_compiler --version; then
 fi
 
 export CMAKE_C_COMPILER="$c_compiler"
+export CMAKE_CC_COMPILER="$c_compiler"
 export CMAKE_CXX_COMPILER="$cxx_compiler"
 export C="$c_compiler"
-export CC="$cxx_compiler"
+export CC="$c_compiler"
 export CXX="$cxx_compiler"
 
