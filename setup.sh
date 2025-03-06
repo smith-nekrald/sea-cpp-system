@@ -159,6 +159,7 @@ fi
 
 # Installing CoinUtils
 if [ ! -d lib/CoinUtils/build ]; then
+    export ADD_CXXFLAGS="-std=c++23"
     mkdir -p lib/CoinUtils/build
     cd lib/CoinUtils/build
     ../configure -C
