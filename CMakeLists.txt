@@ -39,7 +39,7 @@ target_link_libraries(sea
 add_executable(debug EXCLUDE_FROM_ALL ${SOURCES})
 
 target_compile_options(debug PUBLIC
-    -ggdb -pedantic -Wextra -Wformat=2 -Wlogical-op -Wcast-qual -Wcast-align -Wshadow
+    -ggdb -O0 -pedantic -Wextra -Wformat=2 -Wlogical-op -Wcast-qual -Wcast-align -Wshadow
     -D_FORTIFY_SOURCE=2 -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC
     -fstack-protector -fsanitize=undefined -fno-sanitize-recover -fsanitize=address
     )
