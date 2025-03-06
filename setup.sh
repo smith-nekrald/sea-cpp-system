@@ -7,7 +7,7 @@
 # (c) Smith School of Business, 2023
 # (c) Smith School of Business, 2025
 
-njobs=6
+njobs=8
 
 set -uexo pipefail
 
