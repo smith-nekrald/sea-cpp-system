@@ -11,6 +11,12 @@ njobs=8
 
 set -uexo pipefail
 
+if [ -n "${APPTAINER_INSTALL+1}" ]; then
+    if [! -f /usr/bin/gfortran ]; then
+        sudo ln -sf /usr/local/bin/gfortran /usr/bin/gfortran
+    fi
+fi
+
 # Installing Compilation Packages.
 setup_list=(bison build-essential cmake doxygen flex 
     g++ gcc gcc-multilib gfortran git google-perftools sphinx
@@ -18,7 +24,7 @@ setup_list=(bison build-essential cmake doxygen flex
     libgoogle-perftools-dev libgraphviz-dev libjsoncpp-dev liblapack-dev 
     liblbfgs-dev liblog4cpp5-dev libmetis-dev libopenblas-dev libpython3-dev 
     make patch pkg-config python3-dev python3-pip python3-setuptools screen 
-    subversion uuid-dev uuid-runtime wget zip zlib1g-dev libomp-dev libcereal-dev
+    subversion uuid-dev uuid-runtime wget zip zlib1g-dev libomp-dev libcereal-dev flang-19
 )
 
 online=${online=1}
