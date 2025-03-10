@@ -9,10 +9,22 @@
 
 njobs=8
 
+export CPATH="/usr/local/include/coin-or:$CPATH"
+export CPLUS_INCLUDE_PATH="/usr/local/include/coin-or:$CPLUS_INCLUDE_PATH"
+export C_INCLUDE_PATH="$/usr/local/include/coin-or:$C_INCLUDE_PATH"
+export LD_LIBRARY_PATH="$/usr/local/bin:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+cpp_flags="-std=c++20 -O3 -fopenmp -DNDEBUG" 
+export ADD_CXXFLAGS="$cpp_flags"
+export ADD_FFLAGS="-fopenmp"
+export ADD_CFLAGS="-fopenmp"
+export LDFLAGS="-fopenmp"
+
 set -uexo pipefail
 
 if [ -n "${APPTAINER_INSTALL+1}" ]; then
-    if [! -f /usr/bin/gfortran ]; then
+    if [ ! -f /usr/bin/gfortran ]; then
         sudo ln -sf /usr/local/bin/gfortran /usr/bin/gfortran
     fi
 fi
@@ -23,7 +35,7 @@ setup_list=(bison build-essential cmake doxygen flex
     graphviz libboost-all-dev libbz2-dev libffi-dev libgflags-dev libgfortran5
     libgoogle-perftools-dev libgraphviz-dev libjsoncpp-dev liblapack-dev 
     liblbfgs-dev liblog4cpp5-dev libmetis-dev libopenblas-dev libpython3-dev 
-    make patch pkg-config python3-dev python3-pip python3-setuptools screen 
+    make patch pkg-config python3-dev python3-pip python3-setuptools python3-venv screen 
     subversion uuid-dev uuid-runtime wget zip zlib1g-dev libomp-dev libcereal-dev flang-19
 )
 
@@ -34,12 +46,6 @@ if [[ $online -eq 1 ]]; then
     sudo apt-get dist-upgrade -f -y
     sudo apt-get install -f -y ${setup_list[@]}
 fi
-
-# Installing Python packages
-python_packages=(stochastic pygraphviz)
-for pip_package in ${python_packages[@]}; do
-    pip install $pip_package --user
-done
 
 launch_directory=`pwd`
 script_path=`readlink -f "${BASH_SOURCE[0]}"`
@@ -108,9 +114,6 @@ fi
 if [ ! -d lib/Ipopt/build ]; then
     mkdir -p lib/Ipopt/build
     cd lib/Ipopt/build
-    export ADD_CXXFLAGS="-std=c++23 -fopenmp"
-    export ADD_FFLAGS="-fopenmp"
-    export ADD_CFLAGS="-fopenmp"
     ../configure 
     make -j $njobs
     make test -j $njobs
@@ -121,12 +124,12 @@ fi
 
 # Installing CPPAD
 if [ ! -d lib/CppAD/build ]; then
-    mkdir -p lib/CppAD/build
-    cd lib/CppAD/build
-    cmake -D include_ipopt=true -D cppad_cxx_flags="-std=c++23" -D CMAKE_VERBOSE_MAKEFILE=YES ..
-    make check -j $njobs
-    sudo make install
-    cd "${script_directory}"
+   mkdir -p lib/CppAD/build
+   cd lib/CppAD/build
+   cmake -D include_ipopt=true -D cppad_cxx_flags="$cpp_flags" -D cppad_link_flags="-fopenmp -DNDEBUG" -D CMAKE_VERBOSE_MAKEFILE=YES -D CMAKE_BUILD_TYPE=release ..
+   make check -j $njobs
+   sudo make install
+   cd "${script_directory}"
 fi
 
 
@@ -134,8 +137,8 @@ fi
 if [ ! -d lib/Data-Sample/build ]; then
     mkdir -p lib/Data-Sample/build
     cd lib/Data-Sample/build
-    ../configure -C
-    make -j $njobs
+    ../configure --prefix /usr/ -C
+    make -j $njobs 
     sudo make install
     cd "$script_directory"
 fi
@@ -165,7 +168,6 @@ fi
 
 # Installing CoinUtils
 if [ ! -d lib/CoinUtils/build ]; then
-    export ADD_CXXFLAGS="-std=c++23"
     mkdir -p lib/CoinUtils/build
     cd lib/CoinUtils/build
     ../configure -C
@@ -205,7 +207,6 @@ if [ ! -d lib/Cgl/build ]; then
     mkdir -p lib/Cgl/build
     cd lib/Cgl/build
     ../configure -C
-    make -j $njobs
     make test -j $njobs
     sudo make install
     cd "${script_directory}"
