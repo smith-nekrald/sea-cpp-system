@@ -11,8 +11,8 @@ njobs=8
 
 export CPATH="/usr/local/include/coin-or:$CPATH"
 export CPLUS_INCLUDE_PATH="/usr/local/include/coin-or:$CPLUS_INCLUDE_PATH"
-export C_INCLUDE_PATH="$/usr/local/include/coin-or:$C_INCLUDE_PATH"
-export LD_LIBRARY_PATH="$/usr/local/bin:$LD_LIBRARY_PATH"
+export C_INCLUDE_PATH="/usr/local/include/coin-or:$C_INCLUDE_PATH"
+export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 cpp_flags="-std=c++20 -O3 -fopenmp -DNDEBUG" 
@@ -119,6 +119,7 @@ if [ ! -d lib/ThirdParty-Glpk/build ]; then
     make -j $njobs
     make test -j $njobs
     sudo make install
+    cd "${script_directory}"
 fi
 
 # Installing IPOPT
