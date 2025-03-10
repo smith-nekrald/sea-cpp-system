@@ -14,7 +14,7 @@
 [submodule "lib/CppAD"]
 	path = lib/CppAD
 	url = https://github.com/coin-or/CppAD.git
-        branch = stable/20230000
+        branch = master
         ignore = dirty
 [submodule "lib/ThirdParty-Mumps"]
 	path = lib/ThirdParty-Mumps
@@ -70,3 +70,8 @@
 	url = https://github.com/coin-or-tools/ThirdParty-Metis
         branch = stable/2.0
         ignore = dirty
+[submodule "lib/ThirdParty-Glpk"]
+	path = lib/ThirdParty-Glpk
+	url = https://github.com/coin-or-tools/ThirdParty-Glpk.git
+	branch = master
+	ignore = dirty

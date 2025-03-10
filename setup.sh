@@ -109,6 +109,17 @@ if [ ! -d lib/ThirdParty-ASL/build ]; then
     cd "${script_directory}"
 fi
 
+# Installinkg Glpk
+if [ ! -d lib/ThirdParty-Glpk/build ]; then
+    mkdir -p lib/ThirdParty-Glpk/build
+    cd lib/ThirdParty-Glpk 
+    ./get.Glpk
+    cd build
+    ../configure -C
+    make -j $njobs
+    make test -j $njobs
+    sudo make install
+fi
 
 # Installing IPOPT
 if [ ! -d lib/Ipopt/build ]; then
