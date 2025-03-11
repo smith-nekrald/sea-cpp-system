@@ -28,3 +28,8 @@ export C="$c_compiler"
 export CC="$c_compiler"
 export CXX="$cxx_compiler"
 
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+export CPATH="$CPATH:/usr/local/include/coin-or/glpk:/usr/local/include/coin-or"
+export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include/coin-or/glpk"
+export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include/coin-or "
+export C_INCLUDE_PATH="$C_INCLUDE_PATH:/usr/local/include/coin-or/glpk"
