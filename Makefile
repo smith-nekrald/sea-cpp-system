@@ -1,8 +1,13 @@
+SHELL := /bin/bash
+
 opt: 
+	source compilers.sh
 	make -j 8 -f makefiles/opt-makefile
 dbg: 
+	source compilers.sh
 	make -j 8 -f makefiles/debug-makefile
 prof: 
+	source compilers.sh
 	make -j 8 -f makefiles/prof-makefile
 clean:  
 	rm -rf logs
