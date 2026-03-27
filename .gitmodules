@@ -1,6 +1,6 @@
 [submodule "lib/Sources-HSL"]
 	path = lib/Sources-HSL
-	url = https://bitbucket.org/smith-projects/sea-cpp-hsl.git
+	url = ../sea-cpp-hsl.git
 [submodule "lib/ThirdParty-HSL"]
 	path = lib/ThirdParty-HSL
 	url = https://github.com/coin-or-tools/ThirdParty-HSL.git
@@ -64,7 +64,7 @@
         ignore = dirty
 [submodule "src"]
 	path = src
-	url = https://bitbucket.org/smith-projects/sea-cpp-src.git
+	url = ../sea-cpp-src.git
 [submodule "lib/ThirdParty-Metis"]
 	path = lib/ThirdParty-Metis
 	url = https://github.com/coin-or-tools/ThirdParty-Metis
